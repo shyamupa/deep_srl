@@ -6,6 +6,13 @@ if [ ! -d $SRLPATH ]; then
   mkdir -p $SRLPATH
 fi
 
+# Download the srl-conll-1.1 data
+conll05_scripts_url="http://www.lsi.upc.edu/~srlconll/srlconll-1.1.tgz"
+pushd $SRLPATH
+wget $conll05_scripts_url
+tar xzvf srlconll-1.1.tgz
+popd
+
 export PERL5LIB="$SRLPATH/srlconll-1.1/lib:$PERL5LIB"
 export PATH="$SRLPATH/srlconll-1.1/bin:$PATH"
 
